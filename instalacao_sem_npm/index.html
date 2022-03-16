@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Instalação do React Sem NPM</title>
+
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script crossorigin src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+</head>
+<body>
+<!--    Precisamos definir onde vamos montar o react, vamos montar em uma div, não deve ser no body.-->
+<div id="app"></div>
+
+<!--Devemos definir text/babel para saber que vamos misturar JavaScript CSS, e HTML.-->
+<script type="text/babel">
+
+    //Um componente, é componente por causa do que retornamos.
+    function App() {
+        //Esta função vai ser convertida em uma função JS pura que cria um elemento com os atributos e o valor definido. veja a imagem #1 na pasta figuras. Fontes: https://babeljs.io/repl
+        return <div>App React</div>
+    }
+
+    //Devemos dizer o que vamos renderizar (componente App) e segundo onde vamos renderizar.
+    ReactDOM.render(<App/>, document.querySelector('#app'))
+</script>
+</body>
+</html>
