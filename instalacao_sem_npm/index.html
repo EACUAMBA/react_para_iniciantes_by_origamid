@@ -21,11 +21,50 @@
     //Um componente, é componente por causa do que retornamos.
     function App() {
         //Esta função vai ser convertida em uma função JS pura que cria um elemento com os atributos e o valor definido. veja a imagem #1 na pasta figuras. Fontes: https://babeljs.io/repl
-        return <div>App React</div>
+        //Podemos colocar um parentesis para poder colocar os componentes dentro dele e assim permitir quebrarmos a página.
+        return (
+            <div>App React
+                <MainNav/>
+                <Button/>
+                <InputNome/>
+            </div>
+        )
     }
+
+
+    //Componentes
+    //O react é baseado em componentes, temos os componentes baseados em classe e os baseados em funções.
+    //Function Based Component
+    const Button = function () {
+        return <button>Click aqui!</button>
+    }
+
+    //Class Based Component
+    class InputNome extends React.Component {
+        render() {
+            return (
+                <label>
+                    Nome
+                    <input type="text"/>
+                </label>
+            )
+        }
+    }
+
+    //O componente só pode retornar apenas um elemento;
+    const MainNav = () => {
+        return <nav>
+            <ul>
+                <li>Teste 1</li>
+                <li>Teste 2</li>
+            </ul>
+        </nav>
+    }
+
 
     //Devemos dizer o que vamos renderizar (componente App) e segundo onde vamos renderizar.
     ReactDOM.render(<App/>, document.querySelector('#app'))
 </script>
+
 </body>
 </html>
