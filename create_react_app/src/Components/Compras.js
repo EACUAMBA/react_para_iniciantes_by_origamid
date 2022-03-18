@@ -20,6 +20,11 @@ function Compras(props) {
     let colors = cores.map((c, index) => {
         return <button onClick={handleClick} key={index}>{c}</button>
     })
+
+    useEffect(()=>{
+        console.log('test');
+    }, [])
+
     return (
         <div>
             <div className={'square'} style={estilo}>{cor}</div>

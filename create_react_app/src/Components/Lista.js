@@ -19,7 +19,7 @@ function Lista() {
             <ol>
                 {
                     livros.filter((livro) => livro.ano > 1998)
-                        .map((livro)=><li>{livro.nome}</li>)
+                        .map((livro, index)=><li key={index}>{livro.nome}</li>)
                 }
             </ol>
         </div>
