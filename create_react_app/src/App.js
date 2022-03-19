@@ -1,23 +1,25 @@
 import React from "react";
+import {Routes, Route} from 'react-router';
 import Home from './Pages/Home.js';
+import Menu from "./Components/Menu/Menu";
 import Produtos from "./Pages/Produtos";
-import Lista from './Components/Lista.js';
-import Atributos from "./Components/Atributos";
-import Compras from "./Components/Compras";
-import ComprasEffect from "./Components/ComprasEffect";
+import SobreNos from "./Pages/SobreNos/SobreNos";
+import Moedas from "./Components/Moedas/Moedas";
 
 
 const App = () => {
     return (
-        <div>
-            App
-            <Compras/>
-            <Home/>
-            <Produtos/>
-            <Lista/>
-            <Atributos/>
-            <ComprasEffect/>
-        </div>
+        <>
+            <Menu/>
+            <div className={'container'}>
+                <Routes>
+                    <Route path={'/'} element={<Home/>}/>
+                    <Route path={'/produtos'} element={<Produtos/>}/>
+                    <Route path={'/sobre-nos'} element={<SobreNos/>}/>
+                    <Route path={'/moedas'} element={<Moedas/>}/>
+                </Routes>
+            </div>
+        </>
     )
 }
 
