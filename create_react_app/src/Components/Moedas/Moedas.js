@@ -8,13 +8,35 @@ function Moedas(props) {
 
     const [currencies, setCurrencies] = useState([]);
     const [currenciesRate, setCurrenciesRate] = useState({});
+    const [moedaSearch, setMoedaSearch] = useState("");
+    const [paisSearch, setPaisSearch] = useState("");
+    const [search, setSearch] = useState(0);
+
     useEffect(
         () => {
             setTimeout(()=>{
                 getCurrenciesRate(setCurrenciesRate)
                 getCurrencies(setCurrencies)
             }, 2000)
-        }, []);
+        }, [search]);
+
+    const handlePaisKeyUp = function (event){
+        const filter = event.target.value
+
+        const currenciesFiltered = currencies.filter((c)=>{
+            console.log()
+            if(String(c.pais).search(filter) !== -1)
+                return true;
+            else
+                return false
+        })
+
+        if(currenciesFiltered.length === 0 || String(filter).trim().length === 0)
+            setSearch(Math.random)
+
+        setCurrencies(currenciesFiltered);
+    }
+
 
     return (
         <div>
@@ -28,6 +50,13 @@ function Moedas(props) {
                     <th scope={'col'}>Pais</th>
                     <th scope={'col'}>Origem</th>
                     <th scope={'col'}>Destino (em Meticais)</th>
+                </tr>
+                <tr>
+                    <th scope={'col'}></th>
+                    <th scope={'col'}><input className={'form-control'} onChange={(event)=>{setMoedaSearch(event.target.value)}}/></th>
+                    <th scope={'col'}><input className={'form-control'} onChange={(event)=>{setPaisSearch(event.target.value)}} onKeyUp={handlePaisKeyUp}/></th>
+                    <th scope={'col'}></th>
+                    <th scope={'col'}></th>
                 </tr>
                 </thead>
                 <tbody>
