@@ -1,4 +1,4 @@
-function getCurrencies(setCurrencies) {
+function getCurrencies(setCurrencies, setCurrenciesStatic) {
     fetch("https://currencyapi.net/api/v1/currencies?key=7JhHIydpksuvlRBzR7KsFR1FTvQ4Oib8S3BB&output=JSON")
         .then(
             (response)=>{
@@ -22,7 +22,9 @@ function getCurrencies(setCurrencies) {
         )
         .then(
             (currencies)=>{
+
                 setCurrencies(currencies)
+                setCurrenciesStatic(currencies)
             }
         )
 }
