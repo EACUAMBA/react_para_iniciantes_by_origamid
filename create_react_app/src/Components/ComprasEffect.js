@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from 'react';
+import PaisRow from "./PaisRow";
 
 
 function ComprasEffect(props) {
@@ -19,7 +20,7 @@ function ComprasEffect(props) {
             }).then((data)=>{
                setMoedas(Object.entries(data.currencies))
         })
-    }, [])
+    }, [count])
 
     function handleChange(event){
         console.log(event.target.value)
@@ -45,10 +46,7 @@ function ComprasEffect(props) {
                     <tbody>
                     {moedas.map((m)=>{
                         return (
-                            <tr>
-                                <td>{m[0]}</td>
-                                <td>{m[1]}</td>
-                            </tr>
+                            <PaisRow pais={m}/>
                         )
                     })}
                     </tbody>
